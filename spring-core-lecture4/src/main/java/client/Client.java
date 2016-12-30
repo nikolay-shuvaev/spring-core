@@ -1,17 +1,20 @@
 package client;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
 /**
  * Created by NICK on 28.12.2016.
  */
+@Component
 public class Client {
+    @Value("${id}")
     private String id;
+    @Value("name")
     private String fullName;
-
+    @Value("greetings")
     private String greetings;
-
-    public Client(String id, String fullName) {
-        this.id = id;
-        this.fullName = fullName;
-    }
 
     public String getId() {
         return id;
@@ -35,5 +38,14 @@ public class Client {
 
     public void setGreetings(String greetings) {
         this.greetings = greetings;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id='" + id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", greetings='" + greetings + '\'' +
+                '}';
     }
 }
